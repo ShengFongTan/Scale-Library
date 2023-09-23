@@ -9,9 +9,20 @@ import SwiftUI
 
 @main
 struct Scale_LibraryApp: App {
+    
+    @StateObject var launchScreenManager = LaunchScreenManager()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ZStack {
+                ContentView()
+                
+                /// Observes state of launch screen and renders it accordingly
+                if launchScreenManager.state != .completed {
+                    LaunchScreenView()
+                }
+            }
+            .environmentObject(launchScreenManager)
         }
     }
 }
