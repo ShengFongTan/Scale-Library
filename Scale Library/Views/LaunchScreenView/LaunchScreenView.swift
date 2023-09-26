@@ -13,7 +13,7 @@ struct LaunchScreenView: View {
     @State private var secondPhaseIsAnimating: Bool = false
     
     var background: some View {
-        Color("launch-screen-background")
+        Color("TwitterBlue")
             .edgesIgnoringSafeArea(.all)
     }
     
@@ -51,9 +51,7 @@ struct LaunchScreenView: View {
     }
 }
 
-struct LaunchScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        LaunchScreenView()
-            .environmentObject(LaunchScreenManager())
-    }
+#Preview {
+    LaunchScreenView()
+        .environmentObject(LaunchScreenManager())
 }

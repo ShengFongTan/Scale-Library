@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct Scale_LibraryApp: App {
@@ -15,7 +16,8 @@ struct Scale_LibraryApp: App {
     var body: some Scene {
         WindowGroup {
             ZStack {
-                ContentView()
+                HomeView()
+                    .modelContainer(for: ModelKit.self)
                 
                 /// Observes state of launch screen and renders it accordingly
                 if launchScreenManager.state != .completed {

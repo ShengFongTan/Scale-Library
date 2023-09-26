@@ -14,5 +14,7 @@ struct PageView: View {
 }
 
 #Preview {
-    PageView()
+    NavigationStack {
+        PageView()
+    }
 }
