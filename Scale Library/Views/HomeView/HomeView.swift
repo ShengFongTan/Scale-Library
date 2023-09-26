@@ -7,32 +7,35 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeView: View {
     
     @EnvironmentObject var launchScreenManager: LaunchScreenManager
     
     var body: some View {
+        
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            ScrollView(.horizontal, showsIndicators: false, content: {
+                HStack(spacing: 10) {
+                    Text("Hello, world!")
+                    Text("Hello, world!")
+                    Text("Hello, world!")
+                    Text("Hello, world!")
+                }
+            })
         }
         .padding()
         .onAppear {
             /// Simulate retrieving data. delay of 5 seconds before dismissing launch screen
             DispatchQueue
                 .main
-                .asyncAfter(deadline: .now() + 5) {
+                .asyncAfter(deadline: .now() + 3) {
                     launchScreenManager.dismiss()
                 }
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            .environmentObject(LaunchScreenManager())
-    }
+#Preview {
+    HomeView()
+        .environmentObject(LaunchScreenManager())
 }
