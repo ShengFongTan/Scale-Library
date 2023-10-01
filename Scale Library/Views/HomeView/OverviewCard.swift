@@ -36,8 +36,6 @@ struct OverviewCard: View {
                 Text("\(count)")
                     .font(.title2)
                     .bold()
-//                Text("\(countText)")
-//                    .font(.subheadline)
             }
         }
     }

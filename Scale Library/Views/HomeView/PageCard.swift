@@ -16,7 +16,9 @@ struct PageCard: View {
         VStack(alignment: .leading, spacing: 16) {
             Image("\(image)")
                 .resizable()
-                .frame(width: 180, height: 150)
+                .scaledToFill()
+                //.frame(width: 180, height: 150)
+                .frame(maxWidth: 200, maxHeight: 180)
             Text("\(title)")
                 .font(.headline)
                 .padding(.horizontal, 15)
@@ -24,7 +26,7 @@ struct PageCard: View {
         }
         .background(Color.white)
         .clipShape(RoundedRectangle(cornerRadius: 24))
-        .shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.2), radius: 8)
+        .shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.2), radius: 5)
     }
 }
 

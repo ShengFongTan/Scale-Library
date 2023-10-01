@@ -7,20 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D602DBE12AC9459600B67FA7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D602DBE02AC9459600B67FA7 /* Theme.swift */; };
 		D608CF8A2ABED3C100B12F77 /* LaunchScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D608CF892ABED3C100B12F77 /* LaunchScreenManager.swift */; };
 		D608CF912ABEFE5900B12F77 /* ModelKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D608CF902ABEFE5900B12F77 /* ModelKit.swift */; };
 		D60CAA302ABE986F00084C3D /* Scale_LibraryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60CAA2F2ABE986F00084C3D /* Scale_LibraryApp.swift */; };
 		D60CAA322ABE986F00084C3D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60CAA312ABE986F00084C3D /* HomeView.swift */; };
 		D60CAA342ABE987000084C3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D60CAA332ABE987000084C3D /* Assets.xcassets */; };
 		D60CAA372ABE987000084C3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D60CAA362ABE987000084C3D /* Preview Assets.xcassets */; };
-		D65F2C622AC030D200EF5BFA /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65F2C612AC030D200EF5BFA /* PageView.swift */; };
+		D65F2C622AC030D200EF5BFA /* ModelKitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65F2C612AC030D200EF5BFA /* ModelKitsView.swift */; };
+		D66109252AC966DC00128793 /* ModelKitDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66109242AC966DC00128793 /* ModelKitDetailedView.swift */; };
 		D6622F892ABEC91E00E482A0 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6622F882ABEC91E00E482A0 /* LaunchScreenView.swift */; };
 		D67EA5252AC1C57800975D64 /* ClearNavLinkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67EA5242AC1C57800975D64 /* ClearNavLinkStyle.swift */; };
 		D67EA5272AC319F600975D64 /* OverviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67EA5262AC319F600975D64 /* OverviewCard.swift */; };
+		D67FF5ED2AC5C1160038D2CD /* DetectOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FF5EC2AC5C1160038D2CD /* DetectOrientation.swift */; };
 		D6DA9BC72AC018F4008C10A1 /* PageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DA9BC62AC018F4008C10A1 /* PageCard.swift */; };
+		D6DB26C42AC7B91900A3D11C /* ModelsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DB26C32AC7B91900A3D11C /* ModelsCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D602DBE02AC9459600B67FA7 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		D608CF892ABED3C100B12F77 /* LaunchScreenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenManager.swift; sourceTree = "<group>"; };
 		D608CF902ABEFE5900B12F77 /* ModelKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelKit.swift; sourceTree = "<group>"; };
 		D60CAA2C2ABE986F00084C3D /* Scale Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scale Library.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,12 +33,15 @@
 		D60CAA312ABE986F00084C3D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D60CAA332ABE987000084C3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D60CAA362ABE987000084C3D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D65F2C612AC030D200EF5BFA /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		D65F2C612AC030D200EF5BFA /* ModelKitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelKitsView.swift; sourceTree = "<group>"; };
+		D66109242AC966DC00128793 /* ModelKitDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelKitDetailedView.swift; sourceTree = "<group>"; };
 		D6622F872ABEC65000E482A0 /* Scale-Library-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Scale-Library-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D6622F882ABEC91E00E482A0 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		D67EA5242AC1C57800975D64 /* ClearNavLinkStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearNavLinkStyle.swift; sourceTree = "<group>"; };
 		D67EA5262AC319F600975D64 /* OverviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCard.swift; sourceTree = "<group>"; };
+		D67FF5EC2AC5C1160038D2CD /* DetectOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectOrientation.swift; sourceTree = "<group>"; };
 		D6DA9BC62AC018F4008C10A1 /* PageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCard.swift; sourceTree = "<group>"; };
+		D6DB26C32AC7B91900A3D11C /* ModelsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,9 +58,10 @@
 		D608CF872ABECF6B00B12F77 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D66109232AC9665C00128793 /* ModelKitDetailedView */,
+				D67EA5282AC47B5900975D64 /* ModelKitsView */,
 				D6DA9BC52ABFF033008C10A1 /* HomeView */,
 				D608CF882ABED32200B12F77 /* LaunchScreenView */,
-				D65F2C612AC030D200EF5BFA /* PageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -69,6 +78,7 @@
 		D608CF8B2ABEF5C100B12F77 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D602DBE02AC9459600B67FA7 /* Theme.swift */,
 				D608CF902ABEFE5900B12F77 /* ModelKit.swift */,
 			);
 			path = Models;
@@ -97,6 +107,7 @@
 				D608CF8B2ABEF5C100B12F77 /* Models */,
 				D608CF872ABECF6B00B12F77 /* Views */,
 				D67EA5232AC1C3A100975D64 /* Styles */,
+				D67FF5EB2AC5C0E90038D2CD /* Utilities */,
 				D60CAA2F2ABE986F00084C3D /* Scale_LibraryApp.swift */,
 				D60CAA332ABE987000084C3D /* Assets.xcassets */,
 				D60CAA352ABE987000084C3D /* Preview Content */,
@@ -112,12 +123,37 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		D66109232AC9665C00128793 /* ModelKitDetailedView */ = {
+			isa = PBXGroup;
+			children = (
+				D66109242AC966DC00128793 /* ModelKitDetailedView.swift */,
+			);
+			path = ModelKitDetailedView;
+			sourceTree = "<group>";
+		};
 		D67EA5232AC1C3A100975D64 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
 				D67EA5242AC1C57800975D64 /* ClearNavLinkStyle.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		D67EA5282AC47B5900975D64 /* ModelKitsView */ = {
+			isa = PBXGroup;
+			children = (
+				D65F2C612AC030D200EF5BFA /* ModelKitsView.swift */,
+				D6DB26C32AC7B91900A3D11C /* ModelsCard.swift */,
+			);
+			path = ModelKitsView;
+			sourceTree = "<group>";
+		};
+		D67FF5EB2AC5C0E90038D2CD /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D67FF5EC2AC5C1160038D2CD /* DetectOrientation.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		D6DA9BC52ABFF033008C10A1 /* HomeView */ = {
@@ -202,12 +238,16 @@
 			files = (
 				D60CAA322ABE986F00084C3D /* HomeView.swift in Sources */,
 				D67EA5272AC319F600975D64 /* OverviewCard.swift in Sources */,
+				D66109252AC966DC00128793 /* ModelKitDetailedView.swift in Sources */,
 				D60CAA302ABE986F00084C3D /* Scale_LibraryApp.swift in Sources */,
 				D608CF8A2ABED3C100B12F77 /* LaunchScreenManager.swift in Sources */,
 				D608CF912ABEFE5900B12F77 /* ModelKit.swift in Sources */,
+				D67FF5ED2AC5C1160038D2CD /* DetectOrientation.swift in Sources */,
 				D6DA9BC72AC018F4008C10A1 /* PageCard.swift in Sources */,
 				D6622F892ABEC91E00E482A0 /* LaunchScreenView.swift in Sources */,
-				D65F2C622AC030D200EF5BFA /* PageView.swift in Sources */,
+				D6DB26C42AC7B91900A3D11C /* ModelsCard.swift in Sources */,
+				D602DBE12AC9459600B67FA7 /* Theme.swift in Sources */,
+				D65F2C622AC030D200EF5BFA /* ModelKitsView.swift in Sources */,
 				D67EA5252AC1C57800975D64 /* ClearNavLinkStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

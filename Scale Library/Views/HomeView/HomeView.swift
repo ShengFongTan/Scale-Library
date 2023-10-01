@@ -21,23 +21,28 @@ struct HomeView: View {
                 
                 List {
                     Section(header: Text("Pages")) {
-                        ScrollView(.horizontal, showsIndicators: false, content: {
+                        ScrollView(.horizontal, content: {
                             LazyHStack(spacing: 20) {
-                                NavigationLink(destination: PageView()) {
+                                NavigationLink(destination: ModelKitsView()) {
                                     PageCard(title: "Projects", image: "model-kits")
-                                }.modifier(.clearNavLinkStyle)
-                                NavigationLink(destination: PageView()) {
+                                }
+                                .modifier(.clearNavLinkStyle)
+                                NavigationLink(destination: ModelKitsView()) {
                                     PageCard(title: "Model Kits", image: "model-kits")
-                                }.modifier(.clearNavLinkStyle)
-                                NavigationLink(destination: PageView()) {
+                                }
+                                .modifier(.clearNavLinkStyle)
+                                NavigationLink(destination: ModelKitsView()) {
                                     PageCard(title: "Accessories", image: "model-kits")
-                                }.modifier(.clearNavLinkStyle)
-                                NavigationLink(destination: PageView()) {
+                                }
+                                .modifier(.clearNavLinkStyle)
+                                NavigationLink(destination: ModelKitsView()) {
                                     PageCard(title: "Paints", image: "model-kits")
-                                }.modifier(.clearNavLinkStyle)
+                                }
+                                .modifier(.clearNavLinkStyle)
                             }
-                            .padding(20)
+                            .padding()
                         })
+                        .scrollIndicators(.hidden)
                         .listRowBackground(Color.clear)
                         .listRowInsets(EdgeInsets())
                         .listRowSeparator(.hidden)
