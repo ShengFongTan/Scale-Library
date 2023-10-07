@@ -10,77 +10,68 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject var launchScreenManager: LaunchScreenManager
-    @State var test = false
     
     var body: some View {
-        
         NavigationStack {
-            ZStack {
-                Color("HomeBackground")
-                    .edgesIgnoringSafeArea(.all)
-                
-                List {
-                    Section(header: Text("Pages")) {
-                        ScrollView(.horizontal, content: {
-                            LazyHStack(spacing: 20) {
-                                NavigationLink(destination: ModelKitsView()) {
-                                    PageCard(title: "Projects", image: "model-kits")
-                                }
-                                .modifier(.clearNavLinkStyle)
-                                NavigationLink(destination: ModelKitsView()) {
-                                    PageCard(title: "Model Kits", image: "model-kits")
-                                }
-                                .modifier(.clearNavLinkStyle)
-                                NavigationLink(destination: ModelKitsView()) {
-                                    PageCard(title: "Accessories", image: "model-kits")
-                                }
-                                .modifier(.clearNavLinkStyle)
-                                NavigationLink(destination: ModelKitsView()) {
-                                    PageCard(title: "Paints", image: "model-kits")
-                                }
-                                .modifier(.clearNavLinkStyle)
+            List {
+                Section(header: Text("Pages")) {
+                    ScrollView(.horizontal, content: {
+                        LazyHStack(spacing: 20) {
+                            NavigationLink(destination: ModelKitsView()) {
+                                PageCard(title: "Projects", image: "model-kits")
                             }
-                            .padding()
-                        })
-                        .scrollIndicators(.hidden)
-                        .listRowBackground(Color.clear)
-                        .listRowInsets(EdgeInsets())
-                        .listRowSeparator(.hidden)
-                    }
-                    
-                    Section(header: Text("Stash overview")) {
-                        VStack(spacing: 30) {
-                            OverviewCard(
-                                icon: "checklist",
-                                title: "Projects",
-                                smallText: "Planned projects",
-                                count: 4
-                            )
-                            OverviewCard(
-                                icon: "shippingbox",
-                                title: "Model kits",
-                                smallText: "Total costs: $2175",
-                                count: 56
-                            )
-                            OverviewCard(
-                                icon: "wand.and.stars",
-                                title: "Accessories",
-                                smallText: "Total costs: $1530",
-                                count: 76
-                            )
-                            OverviewCard(
-                                icon: "paintpalette",
-                                title: "Paints",
-                                smallText: "Total costs: $560",
-                                count: 45
-                            )
+                            .clearNavLink()
+                            NavigationLink(destination: ModelKitsView()) {
+                                PageCard(title: "Model Kits", image: "model-kits")
+                            }
+                            .clearNavLink()
+                            NavigationLink(destination: ModelKitsView()) {
+                                PageCard(title: "Accessories", image: "model-kits")
+                            }
+                            .clearNavLink()
+                            NavigationLink(destination: ModelKitsView()) {
+                                PageCard(title: "Paints", image: "model-kits")
+                            }
+                            .clearNavLink()
                         }
-                        .listRowBackground(Color.clear)
-                        .listRowSeparator(.hidden)
-                    }
+                        .padding()
+                    })
+                    .clearListItem()
+                    .scrollIndicators(.hidden)
+                    .listRowInsets(EdgeInsets())
                 }
-                .listStyle(PlainListStyle())
+                
+                Section(header: Text("Stash overview")) {
+                    VStack(spacing: 30) {
+                        OverviewCard(
+                            icon: "checklist",
+                            title: "Projects",
+                            smallText: "Planned projects",
+                            count: 4
+                        )
+                        OverviewCard(
+                            icon: "shippingbox",
+                            title: "Model kits",
+                            smallText: "Total costs: $2175",
+                            count: 56
+                        )
+                        OverviewCard(
+                            icon: "wand.and.stars",
+                            title: "Accessories",
+                            smallText: "Total costs: $1530",
+                            count: 76
+                        )
+                        OverviewCard(
+                            icon: "paintpalette",
+                            title: "Paints",
+                            smallText: "Total costs: $560",
+                            count: 45
+                        )
+                    }
+                    .clearListItem()
+                }
             }
+            .listStyle(PlainListStyle())
             .navigationTitle("Scale Library")
         }
         .onAppear {

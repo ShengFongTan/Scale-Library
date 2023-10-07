@@ -15,7 +15,7 @@ import SwiftUI
 //    }
 //}
 
-struct ClearNavLinkStyle: ViewModifier {
+struct ClearNavLink: ViewModifier {
     func body(content: Content) -> some View {
         content
             .foregroundStyle(.black)
@@ -23,6 +23,8 @@ struct ClearNavLinkStyle: ViewModifier {
     }
 }
 
-extension ViewModifier where Self == ClearNavLinkStyle {
-    static var clearNavLinkStyle: Self { Self() }
+extension View {
+    func clearNavLink() -> some View {
+        modifier(ClearNavLink())
+    }
 }

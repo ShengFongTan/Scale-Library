@@ -8,27 +8,34 @@
 import SwiftUI
 
 enum Theme: String, CaseIterable, Identifiable, Codable {
-    case bubblegum
-    case buttercup
-    case indigo
-    case lavender
-    case magenta
-    case navy
-    case orange
-    case oxblood
-    case periwinkle
-    case poppy
-    case purple
-    case seafoam
-    case sky
-    case tan
-    case teal
-    case yellow
+    case Bubblegum
+    case Buttercup
+    case DarkClay
+    case FieldBlue
+    case Indigo
+    case Khaki
+    case Lavender
+    case Magenta
+    case Maroon
+    case MediumBlue
+    case Navy
+    case Orange
+    case Oxblood
+    case Periwinkle
+    case Poppy
+    case Purple
+    case Seafoam
+    case Shadow
+    case Sky
+    case Tan
+    case Teal
+    case TwitterBlue
+    case Yellow
     
     var accentColor: Color {
         switch self {
-        case .bubblegum, .buttercup, .lavender, .orange, .periwinkle, .poppy, .seafoam, .sky, .tan, .teal, .yellow: return .black
-        case .indigo, .magenta, .navy, .oxblood, .purple: return .white
+        case .Bubblegum, .Buttercup, .Lavender, .Orange, .Periwinkle, .Poppy, .Seafoam, .Sky, .Tan, .Teal, .Yellow: return .black
+        case .Indigo, .Magenta, .Navy, .Oxblood, .Purple, .Khaki, .FieldBlue, .TwitterBlue, .Maroon, .MediumBlue, .Shadow, .DarkClay: return .white
         }
     }
     
@@ -37,7 +44,16 @@ enum Theme: String, CaseIterable, Identifiable, Codable {
     }
     
     var name: String {
-        rawValue.capitalized
+        let pattern = "([a-z])([A-Z])"
+        let regex = try! NSRegularExpression(pattern: pattern, options: [])
+        
+        let range = NSRange(location: 0, length: rawValue.utf16.count)
+        var result = regex.stringByReplacingMatches(in: rawValue, options: [], range: range, withTemplate: "$1 $2")
+        
+        // Capitalize the first letter of the resulting string
+        result.replaceSubrange(result.startIndex...result.startIndex, with: String(result[result.startIndex]).capitalized)
+        
+        return result
     }
     
     var id: String {
