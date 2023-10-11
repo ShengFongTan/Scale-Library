@@ -14,7 +14,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section(header: Text("Pages")) {
+                Section {
                     ScrollView(.horizontal, content: {
                         LazyHStack(spacing: 20) {
                             NavigationLink(destination: ModelKitsView()) {
@@ -22,7 +22,7 @@ struct HomeView: View {
                             }
                             .clearNavLink()
                             NavigationLink(destination: ModelKitsView()) {
-                                PageCard(title: "Model Kits", image: "model-kits")
+                                PageCard(title: "Model Kits", image: "f-4")
                             }
                             .clearNavLink()
                             NavigationLink(destination: ModelKitsView()) {
@@ -39,9 +39,11 @@ struct HomeView: View {
                     .clearListItem()
                     .scrollIndicators(.hidden)
                     .listRowInsets(EdgeInsets())
+                } header: {
+                    Text("Pages")
                 }
                 
-                Section(header: Text("Stash overview")) {
+                Section {
                     VStack(spacing: 30) {
                         OverviewCard(
                             icon: "checklist",
@@ -69,9 +71,11 @@ struct HomeView: View {
                         )
                     }
                     .clearListItem()
+                } header: {
+                    Text("Stash Overview")
                 }
             }
-            .listStyle(PlainListStyle())
+            .listStyle(.plain)
             .navigationTitle("Scale Library")
         }
         .onAppear {

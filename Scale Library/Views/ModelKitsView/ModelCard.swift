@@ -9,24 +9,24 @@ import SwiftUI
 
 struct ModelCard: View {
     var modelNamespace: Namespace.ID
-    var index: Int
+    @Bindable var modelKit: ModelKit
     
     var body: some View {
         VStack {
             Spacer()
             VStack(alignment: .leading, spacing: 12) {
-                Text("F-35A")
-                    .font(.title2.weight(.bold))
-                    .matchedGeometryEffect(id: "title\(index)", in: modelNamespace)
-                Text("Some random description of the model here....")
+                Text(modelKit.title)
+                    .font(.largeTitle.weight(.bold))
+                    .matchedGeometryEffect(id: "title\(modelKit.id)", in: modelNamespace)
+                Text(modelKit.shortDescription)
                     .font(.footnote)
-                    .matchedGeometryEffect(id: "description\(index)", in: modelNamespace)
+                    .matchedGeometryEffect(id: "description\(modelKit.id)", in: modelNamespace)
                 HStack(alignment: .center, spacing: 6) {
                     ItemTag(text: "1/48", theme: Theme.FieldBlue)
                     ItemTag(text: "Tamiya", theme: Theme.TwitterBlue)
                     ItemTag(text: "Aircraft", theme: Theme.Maroon)
                 }
-                .matchedGeometryEffect(id: "tags\(index)", in: modelNamespace)
+                .matchedGeometryEffect(id: "tags\(modelKit.id)", in: modelNamespace)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(20)
@@ -37,7 +37,7 @@ struct ModelCard: View {
                         RoundedRectangle(cornerRadius: 30, style: .continuous)
                     )
                     .blur(radius: 40)
-                    .matchedGeometryEffect(id: "blur\(index)", in: modelNamespace)
+                    .matchedGeometryEffect(id: "blur\(modelKit.id)", in: modelNamespace)
             )
         }
         .foregroundStyle(.white)
@@ -45,7 +45,7 @@ struct ModelCard: View {
             Image("f-35a")
                 .resizable()
                 .scaledToFill()
-                .matchedGeometryEffect(id: "image\(index)", in: modelNamespace)
+                .matchedGeometryEffect(id: "image\(modelKit.id)", in: modelNamespace)
         )
         .background(
             ZStack {
@@ -58,19 +58,18 @@ struct ModelCard: View {
         )
         .mask(
             RoundedRectangle(
-                cornerRadius: 30,
+                cornerRadius: 20,
                 style: .continuous
             )
-            .matchedGeometryEffect(id: "roundendedCornersMask\(index)", in: modelNamespace)
+            .matchedGeometryEffect(id: "roundendedCornersMask\(modelKit.id)", in: modelNamespace)
         )
-        .frame(height: 300)
+        .frame(height: 250)
         .standardShadow()
-        .padding()
+        //.padding()
     }
 }
 
 #Preview {
     @Namespace var modelNamespace
-    return ModelCard(modelNamespace: modelNamespace, index: 0)
-    //ModelKitsView()
+    return ModelCard(modelNamespace: modelNamespace, modelKit: ModelKit.sampleData[0])
 }

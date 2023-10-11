@@ -17,7 +17,6 @@ struct Scale_LibraryApp: App {
         WindowGroup {
             ZStack {
                 HomeView()
-                    .modelContainer(for: ModelKit.self)
                 
                 /// Observes state of launch screen and renders it accordingly
                 if launchScreenManager.state != .completed {
@@ -26,5 +25,6 @@ struct Scale_LibraryApp: App {
             }
             .environmentObject(launchScreenManager)
         }
+        .modelContainer(for: [ModelKit.self])
     }
 }

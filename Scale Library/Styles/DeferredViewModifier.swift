@@ -8,7 +8,7 @@
 import SwiftUI
 
 private struct DeferredViewModifier: ViewModifier {
-    let threshold: Double
+    let threshold: Double = 0.5
     
     func body(content: Content) -> some View {
         _content(content)
@@ -36,7 +36,7 @@ private struct DeferredViewModifier: ViewModifier {
 }
 
 extension View {
-    func deferredRendering(for seconds: Double) -> some View {
-        modifier(DeferredViewModifier(threshold: seconds))
+    func deferredRendering() -> some View {
+        modifier(DeferredViewModifier())
     }
 }

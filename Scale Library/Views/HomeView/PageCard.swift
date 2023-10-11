@@ -13,20 +13,32 @@ struct PageCard: View {
     let image: String
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack {
+            Spacer()
+            VStack(alignment: .leading) {
+                Text("\(title)")
+                    .font(.title2.weight(.bold))
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(20)
+            .background(
+                Rectangle()
+                    .fill(.ultraThinMaterial)
+                    .clipShape(
+                        RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    )
+                    .blur(radius: 35)
+            )
+        }
+        .foregroundStyle(.white)
+        .background(
             Image("\(image)")
                 .resizable()
                 .scaledToFill()
-                //.frame(width: 180, height: 150)
-                .frame(maxWidth: 200, maxHeight: 180)
-            Text("\(title)")
-                .font(.headline)
-                .padding(.horizontal, 15)
-                .padding(.bottom, 16)
-        }
-        .background(Color.white)
-        .clipShape(RoundedRectangle(cornerRadius: 24))
-        .shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.2), radius: 5)
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 30))
+        .frame(width: 200, height: 200)
+        .standardShadow()
     }
 }
 
