@@ -28,6 +28,7 @@
 		D67EA5272AC319F600975D64 /* OverviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67EA5262AC319F600975D64 /* OverviewCard.swift */; };
 		D67F09C12AD6FEE80032F220 /* EditModelKitSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67F09C02AD6FEE80032F220 /* EditModelKitSheet.swift */; };
 		D67FF5ED2AC5C1160038D2CD /* DetectOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FF5EC2AC5C1160038D2CD /* DetectOrientation.swift */; };
+		D693890F2AD8229900D91F04 /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D693890E2AD8229900D91F04 /* PreviewContainer.swift */; };
 		D6B9E1352ACAFBDF0074DFED /* ModelCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B9E1342ACAFBDF0074DFED /* ModelCard.swift */; };
 		D6D5C8652ACE6AF900D2C38E /* DeferredViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D5C8642ACE6AF900D2C38E /* DeferredViewModifier.swift */; };
 		D6DA9BC72AC018F4008C10A1 /* PageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DA9BC62AC018F4008C10A1 /* PageCard.swift */; };
@@ -57,6 +58,7 @@
 		D67EA5262AC319F600975D64 /* OverviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCard.swift; sourceTree = "<group>"; };
 		D67F09C02AD6FEE80032F220 /* EditModelKitSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModelKitSheet.swift; sourceTree = "<group>"; };
 		D67FF5EC2AC5C1160038D2CD /* DetectOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectOrientation.swift; sourceTree = "<group>"; };
+		D693890E2AD8229900D91F04 /* PreviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainer.swift; sourceTree = "<group>"; };
 		D6B9E1342ACAFBDF0074DFED /* ModelCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCard.swift; sourceTree = "<group>"; };
 		D6D5C8642ACE6AF900D2C38E /* DeferredViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeferredViewModifier.swift; sourceTree = "<group>"; };
 		D6DA9BC62AC018F4008C10A1 /* PageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCard.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				D67FF5EC2AC5C1160038D2CD /* DetectOrientation.swift */,
+				D693890E2AD8229900D91F04 /* PreviewContainer.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				D65C02082AD24A8100A79C1E /* PhotoPickerViewModel.swift in Sources */,
 				D608CF912ABEFE5900B12F77 /* ModelKit.swift in Sources */,
 				D638662F2ACED7FE005F2F9B /* StandardShadow.swift in Sources */,
+				D693890F2AD8229900D91F04 /* PreviewContainer.swift in Sources */,
 				D67824732AD4367A00A7BFE5 /* ModelKitDetailView.swift in Sources */,
 				D65C02002AD00E6E00A79C1E /* LightShadow.swift in Sources */,
 				D65C02052AD1597C00A79C1E /* ModelKitFormView.swift in Sources */,

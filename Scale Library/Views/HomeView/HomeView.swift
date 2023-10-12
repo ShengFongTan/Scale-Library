@@ -90,6 +90,8 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    let preview = PreviewContainer([ModelKit.self])
+    return HomeView()
+        .modelContainer(preview.container)
         .environmentObject(LaunchScreenManager())
 }

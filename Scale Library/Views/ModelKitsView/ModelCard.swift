@@ -71,5 +71,7 @@ struct ModelCard: View {
 
 #Preview {
     @Namespace var modelNamespace
+    let preview = PreviewContainer([ModelKit.self])
     return ModelCard(modelNamespace: modelNamespace, modelKit: ModelKit.sampleData[0])
+        .modelContainer(preview.container)
 }

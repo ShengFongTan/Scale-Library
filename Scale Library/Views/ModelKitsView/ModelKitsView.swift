@@ -99,6 +99,14 @@ struct ModelKitsView: View {
     }
 }
 
-#Preview {
-    ModelKitsView()
+#Preview("No model kits") {
+    let preview = PreviewContainer([ModelKit.self])
+    return ModelKitsView().modelContainer(preview.container)
+}
+
+#Preview("Have model kits") {
+    let preview = PreviewContainer([ModelKit.self])
+    preview.add(items: ModelKit.sampleData)
+    return ModelKitsView()
+        .modelContainer(preview.container)
 }

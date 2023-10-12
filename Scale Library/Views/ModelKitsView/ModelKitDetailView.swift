@@ -175,5 +175,7 @@ struct ModelKitDetailView: View {
 
 #Preview {
     @Namespace var modelNamespace
+    let preview = PreviewContainer([ModelKit.self])
     return ModelKitDetailView(modelNamespace: modelNamespace, modelKit: .constant(ModelKit.sampleData[0]), showDetail: .constant(true))
+        .modelContainer(preview.container)
 }

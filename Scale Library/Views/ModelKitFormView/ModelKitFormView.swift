@@ -131,5 +131,7 @@ struct ModelKitFormView: View {
 }
 
 #Preview {
-    ModelKitFormView(modelKit: .constant(ModelKit.sampleData[0]))
+    let preview = PreviewContainer([ModelKit.self])
+    return ModelKitFormView(modelKit: .constant(ModelKit.sampleData[0]))
+        .modelContainer(preview.container)
 }

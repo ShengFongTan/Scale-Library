@@ -45,5 +45,7 @@ struct EditModelKitSheet: View {
 }
 
 #Preview {
-    EditModelKitSheet(modelKit: .constant(ModelKit.sampleData[0]))
+    let preview = PreviewContainer([ModelKit.self])
+    return EditModelKitSheet(modelKit: .constant(ModelKit.sampleData[0]))
+        .modelContainer(preview.container)
 }

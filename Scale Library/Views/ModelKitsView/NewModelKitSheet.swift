@@ -38,6 +38,7 @@ struct NewModelKitSheet: View {
 }
 
 #Preview {
-    //NewModelKitSheet(showAddModelKit: .constant(true))
-    NewModelKitSheet()
+    let preview = PreviewContainer([ModelKit.self])
+    return NewModelKitSheet()
+        .modelContainer(preview.container)
 }
