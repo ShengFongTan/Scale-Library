@@ -8,7 +8,8 @@
 import SwiftUI
 import PhotosUI
 
-final class PhotoPickerViewModel: ObservableObject {
+@Observable
+class PhotoPickerViewModel {
     enum ImageState {
         case empty
         case loading(Progress)
@@ -44,17 +45,25 @@ final class PhotoPickerViewModel: ObservableObject {
         }
     }
     
-    @Published private(set) var imageState: ImageState = .empty
+    private(set) var imageState: ImageState = .empty
+    var selectedPhotoData: Data?
     
-    @Published var imageSelection: PhotosPickerItem? = nil {
+    var imageSelection: PhotosPickerItem? = nil {
         didSet {
-            if let imageSelection {
-                let progress = loadTransferable(from: imageSelection)
-                imageState = .loading(progress)
-            } else {
-                imageState = .empty
+            Task {
+                if let imageSelection {
+                    selectedPhotoData = await convertImageToData(from: imageSelection)
+                    let progress = loadTransferable(from: imageSelection)
+                    imageState = .loading(progress)
+                } else {
+                    imageState = .empty
+                }
             }
         }
+    }
+    
+    private func convertImageToData(from imageSelection: PhotosPickerItem) async -> Data {
+        return try! await imageSelection.loadTransferable(type: Data.self)!
     }
     
     private func loadTransferable(from imageSelection: PhotosPickerItem) -> Progress {

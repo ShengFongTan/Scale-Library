@@ -1,0 +1,2 @@
+Target dependency graph (1 target)
+Target 'Scale Library' in project 'Scale Library' (no dependencies)

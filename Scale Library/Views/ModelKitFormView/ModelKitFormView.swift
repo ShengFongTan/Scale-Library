@@ -7,131 +7,177 @@
 
 import SwiftUI
 import PhotosUI
+import SwiftData
+
+/*
+ ModelKitFormView allows users to add new model kit or edit exisitng model kit.
+ In 'add' mode, form will be empty.
+ In 'Edit' mode, form will be pre-filled with data of the selected model kit.
+ The different modes are initialised based on the arguments passed into init.
+*/
 
 struct ModelKitFormView: View {
-    @ObservedObject var viewModel: PhotoPickerViewModel = PhotoPickerViewModel()
+    @Environment(\.dismiss) private var dismiss
+    @State var viewModel: ViewModel
     @FocusState private var isInputActive: Bool
-    @Binding var modelKit: ModelKit
+    
+    var action: String
     
     var body: some View {
-        GeometryReader { geometry in
-            NavigationStack {
-                List {
-                    Section() {
-                        PhotosPicker (
+        NavigationStack {
+            Form {
+                // Image section
+                Section() {
+                    if let imageData = viewModel.modelKit.image,
+                       let uiImage = UIImage(data: imageData) {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .scaledToFit()
+                            .listRowInsets(EdgeInsets())
+                    }
+                    
+                    if viewModel.modelKit.image == nil {
+                        PhotosPicker(
                             selection: $viewModel.imageSelection,
-                            
-                            // Enable the app to dynamically respond to user adjustments.
                             matching: .images,
-                            preferredItemEncoding: .current,
                             photoLibrary: .shared()
                         ) {
-                            Group {
-                                switch viewModel.imageState {
-                                case.success(let image):
-                                    image
-                                        .resizable()
-                                        .scaledToFit()
-                                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                                        .standardShadow()
-                                case.loading:
-                                    ProgressView()
-                                case.empty:
-                                    Image(systemName: "photo")
-                                        .font(.system(size: 150))
-                                        .opacity(0.2)
-                                        .frame(maxWidth: .infinity, maxHeight: 250)
-                                        .background(Color.white)
-                                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                                case .failure:
-                                    Image(systemName: "exclamationmark.triangle.fill")
-                                        .font(.system(size: 40))
-                                        .foregroundColor(.white)
-                                }
-                            }
-                            .frame(maxWidth: .infinity)
+                            Label("Add Image", systemImage: "photo")
                         }
-                        .frame(height: 250)
-                        .clearListItem()
-                    } footer: {
-                        VStack {
-                            Text("Tap to select image")
-                        }
-                        .frame(maxWidth: .infinity)
                     }
                     
-                    Section() {
-                        TextField("Title", text: $modelKit.title)
-                            .onSubmit {
-                                isInputActive = false
+                    if viewModel.modelKit.image != nil {
+                        Button(role: .destructive) {
+                            withAnimation {
+                                viewModel.imageSelection = nil
+                                viewModel.modelKit.image = nil
                             }
-                            .submitLabel(.done)
-                            .focused($isInputActive)
-                        
-                        TextField("Description", text: $modelKit.shortDescription)
-                            .onSubmit {
-                                isInputActive = false
-                            }
-                            .submitLabel(.done)
-                            .focused($isInputActive)
-                        
-                        TextField("Price", text: .constant(""))
-                            .onSubmit {
-                                isInputActive = false
-                            }
-                            .submitLabel(.done)
-                            .focused($isInputActive)
-                        
-                        DatePicker("Bought on", selection: .constant(.now), displayedComponents: .date)
-                    } header: {
-                        Text("Basic info")
-                    }
-                    
-                    Section() {
-                        HStack(spacing: 0) {
-                            VStack(alignment: .leading, spacing: 10) {
-                                Text("Scale")
-                                Divider()
-                                Text("Brand")
-                                Divider()
-                                Text("Category")
-                            }
-                            .frame(width: 120)
-                            VStack(alignment: .leading) {
-                                ItemTag(text: "1/48", theme: Theme.FieldBlue)
-                                Divider()
-                                ItemTag(text: "Tamiya", theme: Theme.TwitterBlue)
-                                Divider()
-                                ItemTag(text: "Aircraft", theme: Theme.Maroon)
-                            }
+                        } label: {
+                            Label("Remove Image", systemImage: "xmark")
+                                .foregroundStyle(.red)
                         }
-                    } header: {
-                        Text("Details")
                     }
-                    
-                    Section() {
-                        HStack {
-                            Image("f-35a")
-                                .resizable()
-                                .scaledToFill()
-                                .clipShape(Circle())
-                                .frame(width: 40, height: 40)
-                                .padding(.trailing, 10)
-                            Text("RSAF SH-60B Seahawk")
+                } footer: {
+                    VStack {
+                        Text("Tap to select image")
+                    }
+                    .frame(maxWidth: .infinity)
+                }
+                
+                // Basic info section
+                Section() {
+                    TextField("Title", text: $viewModel.modelKit.title)
+                        .onSubmit {
+                            isInputActive = false
                         }
-                    } header: {
-                        Text("Project")
+                        .submitLabel(.done)
+                        .focused($isInputActive)
+                    
+                    TextField("Description", text: $viewModel.modelKit.shortDescription)
+                        .onSubmit {
+                            isInputActive = false
+                        }
+                        .submitLabel(.done)
+                        .focused($isInputActive)
+                    
+                    TextField("Price", value: $viewModel.modelKit.price, format: .currency(code: "SGD"))
+                        .onSubmit {
+                            isInputActive = false
+                        }
+                        .submitLabel(.done)
+                        .focused($isInputActive)
+                    
+                    DatePicker("Bought on", selection: $viewModel.modelKit.date, in: ...Date(), displayedComponents: .date)
+                } header: {
+                    Text("Basic info")
+                } footer: {
+                    viewModel.showErrorHint ? Text(viewModel.errorDescription).foregroundStyle(.red) : nil
+                }
+                
+                // Details section
+                Section() {
+                    HStack(spacing: 0) {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("Scale")
+                            Divider()
+                            Text("Brand")
+                            Divider()
+                            Text("Category")
+                        }
+                        .frame(width: 120)
+                        VStack(alignment: .leading) {
+                            ItemTag(text: "1/48", theme: Theme.FieldBlue)
+                            Divider()
+                            ItemTag(text: "Tamiya", theme: Theme.TwitterBlue)
+                            Divider()
+                            ItemTag(text: "Aircraft", theme: Theme.Maroon)
+                        }
+                    }
+                } header: {
+                    Text("Details")
+                }
+                
+                // Planned project section
+                Section() {
+                    HStack {
+                        Image("f-35a")
+                            .resizable()
+                            .scaledToFill()
+                            .clipShape(Circle())
+                            .frame(width: 40, height: 40)
+                            .padding(.trailing, 10)
+                        Text("RSAF SH-60B Seahawk")
+                    }
+                } header: {
+                    Text("Project")
+                }
+            }
+            .navigationTitle("Model kit")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel") {
+                        dismiss()
                     }
                 }
-                .navigationTitle("Model kit")
-                .navigationBarTitleDisplayMode(.inline)
+                ToolbarItem(placement: .confirmationAction) {
+                    if self.action == "Add" {
+                        Button("Add") {
+                            viewModel.addNewModelKit() ? dismiss() : nil
+                        }
+                    } else if self.action == "Edit" {
+                        Button("Save") {
+                            viewModel.editModelKit() ? dismiss() : nil
+                        }
+                    }
+                }
             }
+            .alert(isPresented: $viewModel.showErrorAlert, error: viewModel.error) {}
         }
+    }
+    
+    init(modelContext: ModelContext) {
+        self.action = "Add"
+        let viewModel = ViewModel(modelContext: modelContext)
+        _viewModel = State(initialValue: viewModel)
+    }
+    
+    init(modelContext: ModelContext, selectedModelKit: ModelKit) {
+        self.action = "Edit"
+        let viewModel = ViewModel(modelContext: modelContext, selectedModelKit: selectedModelKit)
+        _viewModel = State(initialValue: viewModel)
     }
 }
 
-#Preview {
+#Preview("Adding new model kit") {
     let preview = PreviewContainer([ModelKit.self])
-    return ModelKitFormView(modelKit: .constant(ModelKit.sampleData[0]))
+    return ModelKitFormView(modelContext: preview.container.mainContext)
+        .modelContainer(preview.container)
+}
+
+#Preview("Edit model kit") {
+    let observables = Observables(selectedModelKit: ModelKit.sampleData[0])
+    let preview = PreviewContainer([ModelKit.self])
+    return ModelKitFormView(modelContext: preview.container.mainContext, selectedModelKit: observables.selectedModelKit!)
         .modelContainer(preview.container)
 }

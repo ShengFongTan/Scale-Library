@@ -6,30 +6,41 @@
 //
 
 import SwiftUI
+import SwiftData
+
+/*
+ First view displayed after app launch.
+ Home view where users can view and navigate to all the main pages:
+    - Projects
+    - Model Kits
+    - Accessories
+    - Paints
+ Also displays overview information
+*/
 
 struct HomeView: View {
-    
-    @EnvironmentObject var launchScreenManager: LaunchScreenManager
+    var modelContext: ModelContext
     
     var body: some View {
         NavigationStack {
             List {
+                // Horizontal scrollview with the main pages
                 Section {
                     ScrollView(.horizontal, content: {
                         LazyHStack(spacing: 20) {
-                            NavigationLink(destination: ModelKitsView()) {
+                            NavigationLink(destination: ProjectsView()) {
                                 PageCard(title: "Projects", image: "model-kits")
                             }
                             .clearNavLink()
-                            NavigationLink(destination: ModelKitsView()) {
+                            NavigationLink(destination: ModelKitsView(modelContext: modelContext)) {
                                 PageCard(title: "Model Kits", image: "f-4")
                             }
                             .clearNavLink()
-                            NavigationLink(destination: ModelKitsView()) {
+                            NavigationLink(destination: AccessoriesView()) {
                                 PageCard(title: "Accessories", image: "model-kits")
                             }
                             .clearNavLink()
-                            NavigationLink(destination: ModelKitsView()) {
+                            NavigationLink(destination: PaintsView()) {
                                 PageCard(title: "Paints", image: "model-kits")
                             }
                             .clearNavLink()
@@ -43,6 +54,7 @@ struct HomeView: View {
                     Text("Pages")
                 }
                 
+                // Stash overview
                 Section {
                     VStack(spacing: 30) {
                         OverviewCard(
@@ -78,20 +90,16 @@ struct HomeView: View {
             .listStyle(.plain)
             .navigationTitle("Scale Library")
         }
-        .onAppear {
-            /// Simulate retrieving data. delay of 5 seconds before dismissing launch screen
-            DispatchQueue
-                .main
-                .asyncAfter(deadline: .now() + 3) {
-                    launchScreenManager.dismiss()
-                }
-        }
+    }
+    
+    init(modelContext: ModelContext) {
+        self.modelContext = modelContext
     }
 }
 
 #Preview {
     let preview = PreviewContainer([ModelKit.self])
-    return HomeView()
+    return HomeView(modelContext: preview.container.mainContext)
         .modelContainer(preview.container)
-        .environmentObject(LaunchScreenManager())
+        .environment(Observables())
 }

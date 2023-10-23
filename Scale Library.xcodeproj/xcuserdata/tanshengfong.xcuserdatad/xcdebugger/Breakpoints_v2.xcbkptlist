@@ -3,4 +3,132 @@
    uuid = "CEE749E3-F7C2-42C6-9C68-C421E3F13C55"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "51C7D779-1D34-4A25-B822-DF18BAB13695"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../var/folders/bd/x3gc_3712mx7l1f6zw64xh5h0000gn/T/swift-generated-sources/@__swiftmacro_13Scale_Library20PhotoPickerViewModelC14imageSelection18ObservationTrackedfMp_.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1"
+            endingLineNumber = "1"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "51C7D779-1D34-4A25-B822-DF18BAB13695 - 40d30148a66ade12"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Scale_Library.PhotoPickerViewModel._imageSelection.getter : Swift.Optional&lt;_PhotosUI_SwiftUI.PhotosPickerItem&gt;"
+                  moduleName = "Scale Library"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///var/folders/bd/x3gc_3712mx7l1f6zw64xh5h0000gn/T/swift-generated-sources/@__swiftmacro_13Scale_Library20PhotoPickerViewModelC14imageSelection18ObservationTrackedfMp_.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1"
+                  endingLineNumber = "1"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "51C7D779-1D34-4A25-B822-DF18BAB13695 - c24b2d0290e9e7f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Scale_Library.PhotoPickerViewModel._imageSelection.setter : Swift.Optional&lt;_PhotosUI_SwiftUI.PhotosPickerItem&gt;"
+                  moduleName = "Scale Library"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tanshengfong/Projects/Scale%20Library/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "51C7D779-1D34-4A25-B822-DF18BAB13695 - 39ca39fce562071d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Scale_Library.PhotoPickerViewModel._imageSelection.modify : Swift.Optional&lt;_PhotosUI_SwiftUI.PhotosPickerItem&gt;"
+                  moduleName = "Scale Library"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///var/folders/bd/x3gc_3712mx7l1f6zw64xh5h0000gn/T/swift-generated-sources/@__swiftmacro_13Scale_Library20PhotoPickerViewModelC14imageSelection18ObservationTrackedfMp_.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1"
+                  endingLineNumber = "1"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "51C7D779-1D34-4A25-B822-DF18BAB13695 - 9326b000960e7465"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Scale_Library.PhotoPickerViewModel._imageSelection.modify : Swift.Optional&lt;_PhotosUI_SwiftUI.PhotosPickerItem&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Scale Library"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tanshengfong/Projects/Scale%20Library/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0CB59762-E339-41F7-8BC3-9721407FFE6C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../var/folders/bd/x3gc_3712mx7l1f6zw64xh5h0000gn/T/swift-generated-sources/@__swiftmacro_13Scale_Library33_6547A5C48CD3490D323C49E5A509B174Ll7PreviewfMf_.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1"
+            endingLineNumber = "1"
+            landmarkName = "$s13Scale_Library33_6547A5C48CD3490D323C49E5A509B174Ll7PreviewfMf_15PreviewRegistryfMu_"
+            landmarkType = "37">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D5015D9E-4CD0-4912-9127-AA445758E573"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../var/folders/bd/x3gc_3712mx7l1f6zw64xh5h0000gn/T/swift-generated-sources/@__swiftmacro_13Scale_Library16ModelKitFormViewV0fC0C14imageSelection18ObservationTrackedfMp_.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2"
+            endingLineNumber = "2"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "34EAC5AE-D2D8-4597-B3B5-49C3D0C561E9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../var/folders/bd/x3gc_3712mx7l1f6zw64xh5h0000gn/T/swift-generated-sources/@__swiftmacro_13Scale_Library16ModelKitFormViewV0fC0C14imageSelection18ObservationTrackedfMp_.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1"
+            endingLineNumber = "1"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

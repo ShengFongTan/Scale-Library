@@ -6,13 +6,42 @@
 //
 
 import SwiftUI
+import SwiftData
+
+/*
+ Displays all information about a model kit.
+ 
+ Displays basic information of a model kit:
+    - Image (In the background)
+    - Title
+    - Description
+    - Scale
+    - Brand
+    - Category
+ 
+ The elements which stores the information above are linked to their
+ counterparts in ModelKitCard used in ModelKitsView via the .matchedGeometryEffect modifier.
+ 
+ Displays other information about the model kit:
+    - Date bought
+    - Price
+    - Planned project
+*/
 
 struct ModelKitDetailView: View {
-    @Environment(\.modelContext) private var context
+    @Environment(Observables.self) var observables: Observables
+    
+    // For matched geometry animation
     var modelNamespace: Namespace.ID
-    @Binding var modelKit: ModelKit
+    
+    // Binding to control visibility of ModelKitDetailView
     @Binding var showDetail: Bool
+    
+    // State to control visibility of ModelKitFormView
     @State private var showEditModelKit = false
+    
+    @State var viewModel: ViewModel
+    var modelContext: ModelContext
     
     var body: some View {
         GeometryReader { geometry in
@@ -22,23 +51,23 @@ struct ModelKitDetailView: View {
                 
                 ScrollView {
                     ZStack {
+                        // Blue gradient background
                         LinearGradient(
                             colors: [Color(.twitterBlue), Color(.mediumBlue)],
                             startPoint: .center,
                             endPoint: .bottom
                         )
                         .frame(height: 800)
-                        .offset(y: -400) /// If no offset, background colour will show if user scroll up.
+                        .offset(y: -400) // If no offset, background colour will show if user scroll up.
                         .standardShadow()
                         
-                        VStack(spacing: 40) {
+                        // Model kit information section
+                        VStack(spacing: 30) {
                             VStack(alignment: .leading, spacing: 12) {
-                                Text(modelKit.title)
+                                Text(observables.selectedModelKit!.title)
                                     .font(.largeTitle.weight(.bold))
-                                    .matchedGeometryEffect(id: "title\(modelKit.id)", in: modelNamespace)
-                                Text(modelKit.shortDescription)
+                                Text(observables.selectedModelKit!.shortDescription)
                                     .font(.footnote)
-                                    .matchedGeometryEffect(id: "description\(modelKit.id)", in: modelNamespace)
                                 HStack(alignment: .center, spacing: 6) {
                                     ItemTag(text: "1/48", theme: Theme.FieldBlue)
                                         .lightShadow()
@@ -47,43 +76,58 @@ struct ModelKitDetailView: View {
                                     ItemTag(text: "Aircraft", theme: Theme.Maroon)
                                         .lightShadow()
                                 }
-                                .matchedGeometryEffect(id: "tags\(modelKit.id)", in: modelNamespace)
                             }
                             .foregroundStyle(.white)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.top, 80)
+                            .matchedGeometryEffect(id: "basicInfo\(observables.selectedModelKit!.id)", in: modelNamespace)
                             
                             VStack(spacing: 10) {
-                                Image("f-35a")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .matchedGeometryEffect(id: "image\(modelKit.id)", in: modelNamespace)
-                                    .mask(
-                                        RoundedRectangle(
-                                            cornerRadius: 20,
-                                            style: .continuous
-                                        )
-                                        .matchedGeometryEffect(id: "roundendedCornersMask\(modelKit.id)", in: modelNamespace)
-                                    )
-                                    .standardShadow()
+                                // Model kit image
+                                Group {
+                                    if (observables.selectedModelKit!.image != nil) {
+                                        Image(uiImage: UIImage(data: observables.selectedModelKit!.image!)!)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .matchedGeometryEffect(id: "image\(observables.selectedModelKit!.id)", in: modelNamespace)
+                                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                                            .matchedGeometryEffect(id: "roundendedCornersMask\(observables.selectedModelKit!.id)", in: modelNamespace)
+                                    } else {
+                                        ZStack {
+                                            Color.white
+                                            Image(systemName: "photo")
+                                                .resizable()
+                                                .opacity(0.3)
+                                                .scaledToFit()
+                                                .padding()
+                                                .matchedGeometryEffect(id: "image\(observables.selectedModelKit!.id)", in: modelNamespace)
+                                        }
+                                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                                        .matchedGeometryEffect(id: "roundendedCornersMask\(observables.selectedModelKit!.id)", in: modelNamespace)
+                                    }
+                                }
+                                .standardShadow()
+                                
+                                // Bought date and price
                                 HStack(alignment: .center, spacing: 4) {
                                     Text("Bought on")
-                                        .font(.footnote)
-                                    Text("27 June 2020")
-                                        .font(.footnote)
+                                        .font(.caption)
+                                    Text(observables.selectedModelKit!.date, format: .dateTime.day().month().year())
+                                        .font(.caption)
                                         .bold()
                                     Spacer()
-                                    Text("$55")
+                                    Text(formatCurrency(amount: observables.selectedModelKit!.price))
                                         .fontWeight(.bold)
                                 }
                                 .deferredRendering()
-                                Divider()
-                                    .deferredRendering()
+                                
+                                Divider().deferredRendering()
                             }
                             
+                            // Planned project
                             VStack(alignment: .leading, spacing: 10) {
                                 Text("Planned project")
-                                    .font(.caption)
+                                    .font(.headline)
                                 VStack {
                                     HStack(alignment: .top) {
                                         Image("f-35a")
@@ -95,7 +139,7 @@ struct ModelKitDetailView: View {
                                         VStack(alignment: .leading, spacing: 12) {
                                             Text("F-35A")
                                                 .font(.title3.weight(.bold))
-                                            Text("testetsetsetsetsettestetsetsetsetsettestetsetsetsetsettestetsetsetsetsettestetsetsetsetsettestetsetsetsetsettestetsetsetsetset")
+                                            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
                                                 .font(.footnote)
                                         }
                                         Spacer()
@@ -127,6 +171,7 @@ struct ModelKitDetailView: View {
                 .scrollIndicators(.hidden)
                 .ignoresSafeArea()
                 
+                // Close and menu buttons
                 HStack {
                     Button {
                         withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
@@ -146,13 +191,7 @@ struct ModelKitDetailView: View {
                     Menu {
                         Button("Edit", systemImage: "pencil", action: {showEditModelKit = true})
                         Button("Delete", systemImage: "xmark.bin", role: .destructive, action: {
-                            context.delete(modelKit)
-                            do {
-                                try context.save()
-                            } catch {
-                                print(error.localizedDescription)
-                            }
-                            showDetail.toggle()
+                            viewModel.deleteModelKit(modelKit: observables.selectedModelKit!) ? showDetail.toggle() : nil
                         })
                     } label: {
                         Image(systemName: "ellipsis")
@@ -162,20 +201,33 @@ struct ModelKitDetailView: View {
                             .background(.ultraThinMaterial, in: Circle())
                     }
                 }
-                .padding(.leading, 13)
-                .padding(.trailing, 20)
-                .padding(.top, 20)
+                .padding(.leading, 15)
+                .padding(.trailing, 10)
             }
             .fullScreenCover(isPresented: $showEditModelKit) {
-                EditModelKitSheet(modelKit: $modelKit)
+                ModelKitFormView(modelContext: modelContext, selectedModelKit: observables.selectedModelKit!)
             }
+            .alert(viewModel.errorAlertMessage, isPresented: $viewModel.showErrorAlert) {}
         }
+    }
+    
+    init(modelContext: ModelContext, modelNamespace: Namespace.ID, showDetail: Binding<Bool>) {
+        self.modelContext = modelContext
+        self.modelNamespace = modelNamespace
+        self._showDetail = showDetail
+        let viewModel = ViewModel(modelContext: modelContext)
+        _viewModel = State(initialValue: viewModel)
     }
 }
 
 #Preview {
     @Namespace var modelNamespace
     let preview = PreviewContainer([ModelKit.self])
-    return ModelKitDetailView(modelNamespace: modelNamespace, modelKit: .constant(ModelKit.sampleData[0]), showDetail: .constant(true))
-        .modelContainer(preview.container)
+    return ModelKitDetailView(
+        modelContext: preview.container.mainContext,
+        modelNamespace: modelNamespace,
+        showDetail: .constant(true)
+    )
+    .modelContainer(preview.container)
+    .environment(Observables(selectedModelKit: ModelKit.sampleData[0]))
 }

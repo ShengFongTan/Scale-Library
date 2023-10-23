@@ -8,23 +8,32 @@
 import SwiftUI
 import SwiftData
 
+/*
+ Application's root where model container and environment objects
+ are defined.
+ 
+ Model Context is passed down to child views via init for their viewmodels.
+*/
+
 @main
 struct Scale_LibraryApp: App {
+    @State var observables: Observables = Observables()
     
-    @StateObject var launchScreenManager = LaunchScreenManager()
+    // Defining model container for all models
+    let container: ModelContainer = {
+        let schema = Schema([ModelKit.self])
+        let container = try! ModelContainer(for: schema)
+        return container
+    }()
     
     var body: some Scene {
         WindowGroup {
-            ZStack {
-                HomeView()
-                
-                /// Observes state of launch screen and renders it accordingly
-                if launchScreenManager.state != .completed {
-                    LaunchScreenView()
-                }
+            NavigationStack {
+                HomeView(modelContext: container.mainContext)
             }
-            .environmentObject(launchScreenManager)
+            // Passed into navigaiton stack so all views inside navigation stack can access.
+            .environment(observables)
         }
-        .modelContainer(for: [ModelKit.self])
+        .modelContainer(container)
     }
 }
