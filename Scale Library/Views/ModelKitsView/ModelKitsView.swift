@@ -36,13 +36,10 @@ struct ModelKitsView: View {
     @State var viewModel: ViewModel
     var modelContext: ModelContext
     
-    // Realtime list of all model kits
-    @Query var modelKits: [ModelKit]
-    
     var body: some View {
         NavigationStack {
             ZStack {
-                if modelKits.isEmpty {
+                if viewModel.modelKitsList.isEmpty {
                     ContentUnavailableView(label: {
                         Label("No Model Kits", systemImage: "shippingbox")
                     }, description: {
@@ -58,7 +55,7 @@ struct ModelKitsView: View {
                             columns: [GridItem(.adaptive(minimum: device == "iPhone" && orientation.isPortrait ? UIScreen.main.bounds.width : 300, maximum: .infinity))],
                             spacing: 20
                         ) {
-                            ForEach(modelKits, id: \.id) { modelKit in
+                            ForEach(viewModel.modelKitsList, id: \.self) { modelKit in
                                 ModelKitCard(modelNamespace: modelNamespace, modelKit: modelKit)
                                     .onTapGesture {
                                         withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
@@ -108,9 +105,15 @@ struct ModelKitsView: View {
             .fullScreenCover(isPresented: $showEditModelKit) {
                 ModelKitFormView(modelContext: modelContext, selectedModelKit: observables.selectedModelKit!)
             }
+            .detectOrientation($orientation)
+            .alert(viewModel.errorAlertMessage, isPresented: $viewModel.showErrorAlert) {}
+            // Task runs everytime any other view closes.
+            .task(id: [showDetail, showAddModelKit, showEditModelKit]) {
+                if showDetail == false || showAddModelKit == false || showEditModelKit == false {
+                    viewModel.fetchModelKits()
+                }
+            }
         }
-        .detectOrientation($orientation)
-        .alert(viewModel.errorAlertMessage, isPresented: $viewModel.showErrorAlert) {}
     }
     
     init(modelContext: ModelContext) {

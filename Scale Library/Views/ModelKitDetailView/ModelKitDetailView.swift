@@ -40,6 +40,8 @@ struct ModelKitDetailView: View {
     // State to control visibility of ModelKitFormView
     @State private var showEditModelKit = false
     
+    @State var disableGeomtryEffect = false
+    
     @State var viewModel: ViewModel
     var modelContext: ModelContext
     
@@ -80,7 +82,7 @@ struct ModelKitDetailView: View {
                             .foregroundStyle(.white)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.top, 80)
-                            .matchedGeometryEffect(id: "basicInfo\(observables.selectedModelKit!.id)", in: modelNamespace)
+                            .matchedGeometryEffect(id: !disableGeomtryEffect ? "basicInfo\(observables.selectedModelKit!.id)" : "", in: modelNamespace)
                             
                             VStack(spacing: 10) {
                                 // Model kit image
@@ -89,9 +91,9 @@ struct ModelKitDetailView: View {
                                         Image(uiImage: UIImage(data: observables.selectedModelKit!.image!)!)
                                             .resizable()
                                             .scaledToFit()
-                                            .matchedGeometryEffect(id: "image\(observables.selectedModelKit!.id)", in: modelNamespace)
+                                            .matchedGeometryEffect(id: !disableGeomtryEffect ? "image\(observables.selectedModelKit!.id)" : "", in: modelNamespace)
                                             .clipShape(RoundedRectangle(cornerRadius: 20))
-                                            .matchedGeometryEffect(id: "roundendedCornersMask\(observables.selectedModelKit!.id)", in: modelNamespace)
+                                            .matchedGeometryEffect(id: !disableGeomtryEffect ? "roundendedCornersMask\(observables.selectedModelKit!.id)" : "", in: modelNamespace)
                                     } else {
                                         ZStack {
                                             Color.white
@@ -100,10 +102,10 @@ struct ModelKitDetailView: View {
                                                 .opacity(0.3)
                                                 .scaledToFit()
                                                 .padding()
-                                                .matchedGeometryEffect(id: "image\(observables.selectedModelKit!.id)", in: modelNamespace)
+                                                .matchedGeometryEffect(id: !disableGeomtryEffect ? "image\(observables.selectedModelKit!.id)" : "", in: modelNamespace)
                                         }
                                         .clipShape(RoundedRectangle(cornerRadius: 20))
-                                        .matchedGeometryEffect(id: "roundendedCornersMask\(observables.selectedModelKit!.id)", in: modelNamespace)
+                                        .matchedGeometryEffect(id: !disableGeomtryEffect ? "roundendedCornersMask\(observables.selectedModelKit!.id)" : "", in: modelNamespace)
                                     }
                                 }
                                 .standardShadow()
@@ -191,7 +193,13 @@ struct ModelKitDetailView: View {
                     Menu {
                         Button("Edit", systemImage: "pencil", action: {showEditModelKit = true})
                         Button("Delete", systemImage: "xmark.bin", role: .destructive, action: {
-                            viewModel.deleteModelKit(modelKit: observables.selectedModelKit!) ? showDetail.toggle() : nil
+                            withAnimation {
+                                let result = viewModel.deleteModelKit(modelKit: observables.selectedModelKit!)
+                                if result {
+                                    disableGeomtryEffect = true
+                                    showDetail.toggle()
+                                }
+                            }
                         })
                     } label: {
                         Image(systemName: "ellipsis")

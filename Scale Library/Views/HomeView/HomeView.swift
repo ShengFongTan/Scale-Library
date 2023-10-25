@@ -20,6 +20,7 @@ import SwiftData
 
 struct HomeView: View {
     var modelContext: ModelContext
+    @Query var modelKits: [ModelKit]
     
     var body: some View {
         NavigationStack {
@@ -61,25 +62,25 @@ struct HomeView: View {
                             icon: "checklist",
                             title: "Projects",
                             smallText: "Planned projects",
-                            count: 4
+                            count: 0
                         )
                         OverviewCard(
                             icon: "shippingbox",
                             title: "Model kits",
-                            smallText: "Total costs: $2175",
-                            count: 56
+                            smallText: "Total costs: \(formatCurrency(amount: modelKits.reduce(0) { sum, item in sum + (item.price) }))",
+                            count: modelKits.count
                         )
                         OverviewCard(
                             icon: "wand.and.stars",
                             title: "Accessories",
                             smallText: "Total costs: $1530",
-                            count: 76
+                            count: 0
                         )
                         OverviewCard(
                             icon: "paintpalette",
                             title: "Paints",
                             smallText: "Total costs: $560",
-                            count: 45
+                            count: 0
                         )
                     }
                     .clearListItem()
@@ -99,6 +100,7 @@ struct HomeView: View {
 
 #Preview {
     let preview = PreviewContainer([ModelKit.self])
+    preview.add(items: ModelKit.sampleData)
     return HomeView(modelContext: preview.container.mainContext)
         .modelContainer(preview.container)
         .environment(Observables())

@@ -34,6 +34,7 @@
 		D69389132AD84EE400D91F04 /* ModelKitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69389122AD84EE400D91F04 /* ModelKitsViewModel.swift */; };
 		D69AC3E02ADFFA52002A59F2 /* AccessoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69AC3DF2ADFFA52002A59F2 /* AccessoriesView.swift */; };
 		D69AC3E22ADFFA81002A59F2 /* PaintsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69AC3E12ADFFA81002A59F2 /* PaintsView.swift */; };
+		D6A07EC32AE952CC00B8CF51 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A07EC22AE952CC00B8CF51 /* HomeViewModel.swift */; };
 		D6B9E1352ACAFBDF0074DFED /* ModelKitCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B9E1342ACAFBDF0074DFED /* ModelKitCard.swift */; };
 		D6D5C8652ACE6AF900D2C38E /* DeferredViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D5C8642ACE6AF900D2C38E /* DeferredViewModifier.swift */; };
 		D6DA9BC72AC018F4008C10A1 /* PageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DA9BC62AC018F4008C10A1 /* PageCard.swift */; };
@@ -69,6 +70,7 @@
 		D69389122AD84EE400D91F04 /* ModelKitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelKitsViewModel.swift; sourceTree = "<group>"; };
 		D69AC3DF2ADFFA52002A59F2 /* AccessoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoriesView.swift; sourceTree = "<group>"; };
 		D69AC3E12ADFFA81002A59F2 /* PaintsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintsView.swift; sourceTree = "<group>"; };
+		D6A07EC22AE952CC00B8CF51 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		D6B9E1342ACAFBDF0074DFED /* ModelKitCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelKitCard.swift; sourceTree = "<group>"; };
 		D6D5C8642ACE6AF900D2C38E /* DeferredViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeferredViewModifier.swift; sourceTree = "<group>"; };
 		D6DA9BC62AC018F4008C10A1 /* PageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCard.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 			children = (
 				D6E1DC552AE6746E00075B72 /* Components */,
 				D60CAA312ABE986F00084C3D /* HomeView.swift */,
+				D6A07EC22AE952CC00B8CF51 /* HomeViewModel.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				D638662F2ACED7FE005F2F9B /* StandardShadow.swift in Sources */,
 				D693890F2AD8229900D91F04 /* PreviewContainer.swift in Sources */,
 				D67824732AD4367A00A7BFE5 /* ModelKitDetailView.swift in Sources */,
+				D6A07EC32AE952CC00B8CF51 /* HomeViewModel.swift in Sources */,
 				D69AC3E02ADFFA52002A59F2 /* AccessoriesView.swift in Sources */,
 				D65C02002AD00E6E00A79C1E /* LightShadow.swift in Sources */,
 				D65C02052AD1597C00A79C1E /* ModelKitFormView.swift in Sources */,

@@ -62,8 +62,6 @@ extension ModelKitFormView {
         var imageSelection: PhotosPickerItem? = nil {
             didSet {
                 if let imageSelection {
-                    //var selectedPhotoData = await convertImageToData(from: imageSelection)
-                    //modelKit.image = selectedPhotoData
                     let progress = loadTransferable(from: imageSelection)
                     self.imageState = .loading(progress)
                 } else {
@@ -71,10 +69,6 @@ extension ModelKitFormView {
                 }
             }
         }
-        
-//        private func convertImageToData(from imageSelection: PhotosPickerItem) async -> Data {
-//            return try! await imageSelection.loadTransferable(type: Data.self)!
-//        }
         
         private func loadTransferable(from imageSelection: PhotosPickerItem) -> Progress {
             return imageSelection.loadTransferable(type: Data.self) { result in

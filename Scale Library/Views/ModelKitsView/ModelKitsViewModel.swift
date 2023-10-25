@@ -38,6 +38,7 @@ extension ModelKitsView {
             do {
                 modelContext.delete(modelKit)
                 try modelContext.save()
+                fetchModelKits()
             } catch {
                 errorAlertMessage = "Failed to delete, please try again"
                 showErrorAlert = true

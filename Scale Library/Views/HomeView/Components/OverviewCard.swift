@@ -12,7 +12,7 @@ struct OverviewCard: View {
     let icon: String
     let title: String
     let smallText: String
-    let count: Int
+    var count: Int
     
     var body: some View {
         HStack(alignment: .top) {
