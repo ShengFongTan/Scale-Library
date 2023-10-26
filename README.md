@@ -10,7 +10,7 @@
 
 ## About The Project
 <div align="center">
-  <img src="Images/HomeView.png" alt="Logo" width="30%">
+  <img src="Images/AppDemo.gif" alt="Logo">
 </div>
 
 <br><br><br>
@@ -19,11 +19,6 @@ Scale Library is an IOS application for scale model enthusiasts to easily manage
 
 <br><br><br>
 
-### Features
-
-<div align="center">
-  <img src="Images/AppDemo.gif" alt="Logo">
-</div>
-
-#### Item tracking:
+## Features
+### Item tracking:
 Effortlessly catalog every model kit, accessory and paint.
