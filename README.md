@@ -9,8 +9,21 @@
 </div>
 
 ## About The Project
-![](https://github.com/ShengFongTan/Scale-Library/tree/main/Images/AppDemo.gif)
 <div align="center">
-  <img src="Scale Library/Assets.xcassets/Images/Readme/HomeView.imageset/HomeView.png" alt="Logo" width="30%">
-  ![](https://github.com/Your_Repository_Name/Your_GIF_Name.gif)
+  <img src="Images/HomeView.png" alt="Logo" width="30%">
 </div>
+
+<br><br><br>
+
+Scale Library is an IOS application for scale model enthusiasts to easily manage their model kit collection, keep track of accessories and paints, and plan future projects with a streamlined and intuitive interface.
+
+<br><br><br>
+
+### Features
+
+<div align="center">
+  <img src="Images/AppDemo.gif" alt="Logo">
+</div>
+
+#### Item tracking:
+Effortlessly catalog every model kit, accessory and paint.
