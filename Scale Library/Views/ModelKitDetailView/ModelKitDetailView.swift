@@ -67,22 +67,32 @@ struct ModelKitDetailView: View {
                         VStack(spacing: 30) {
                             VStack(alignment: .leading, spacing: 12) {
                                 Text(observables.selectedModelKit!.title)
-                                    .font(.largeTitle.weight(.bold))
+                                    .font(.title2.weight(.bold))
+                                    .matchedGeometryEffect(id: !disableGeomtryEffect ? "title\(observables.selectedModelKit!.id)" : "", in: modelNamespace)
                                 Text(observables.selectedModelKit!.shortDescription)
                                     .font(.footnote)
+                                    .matchedGeometryEffect(id: !disableGeomtryEffect ? "description\(observables.selectedModelKit!.id)" : "", in: modelNamespace)
                                 HStack(alignment: .center, spacing: 6) {
                                     ItemTag(text: "1/48", theme: Theme.FieldBlue)
                                         .lightShadow()
+                                        .matchedGeometryEffect(id: !disableGeomtryEffect ? "scale\(observables.selectedModelKit!.id)" : "", in: modelNamespace)
                                     ItemTag(text: "Tamiya", theme: Theme.TwitterBlue)
                                         .lightShadow()
+                                        .matchedGeometryEffect(id: !disableGeomtryEffect ? "brand\(observables.selectedModelKit!.id)" : "", in: modelNamespace)
                                     ItemTag(text: "Aircraft", theme: Theme.Maroon)
                                         .lightShadow()
+                                        .matchedGeometryEffect(id: !disableGeomtryEffect ? "category\(observables.selectedModelKit!.id)" : "", in: modelNamespace)
                                 }
                             }
                             .foregroundStyle(.white)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.top, 80)
-                            .matchedGeometryEffect(id: !disableGeomtryEffect ? "basicInfo\(observables.selectedModelKit!.id)" : "", in: modelNamespace)
+                            /*
+                             For some reason adding the matchedGeometryEffect modifier(must include the ternary statement)
+                             below solves the laggy animation caused by the matchedGeometryEffect modifiers in the model
+                             kit information section above.
+                            */
+                            .matchedGeometryEffect(id: !disableGeomtryEffect ? "Dummy" : "", in: modelNamespace)
                             
                             VStack(spacing: 10) {
                                 // Model kit image

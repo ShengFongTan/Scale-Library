@@ -33,12 +33,17 @@ struct ModelKitCard: View {
             VStack(alignment: .leading, spacing: 12) {
                 Text(modelKit.title)
                     .font(.title2.weight(.bold))
+                    .matchedGeometryEffect(id: "title\(modelKit.id)", in: modelNamespace)
                 Text(modelKit.shortDescription)
                     .font(.footnote)
+                    .matchedGeometryEffect(id: "description\(modelKit.id)", in: modelNamespace)
                 HStack(alignment: .center, spacing: 6) {
                     ItemTag(text: "1/48", theme: Theme.FieldBlue)
+                        .matchedGeometryEffect(id: "scale\(modelKit.id)", in: modelNamespace)
                     ItemTag(text: "Tamiya", theme: Theme.TwitterBlue)
+                        .matchedGeometryEffect(id: "brand\(modelKit.id)", in: modelNamespace)
                     ItemTag(text: "Aircraft", theme: Theme.Maroon)
+                        .matchedGeometryEffect(id: "category\(modelKit.id)", in: modelNamespace)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -51,7 +56,7 @@ struct ModelKitCard: View {
                     )
                     .blur(radius: 40)
             )
-            .matchedGeometryEffect(id: "basicInfo\(modelKit.id)", in: modelNamespace)
+            //.matchedGeometryEffect(id: "basicInfo\(modelKit.id)", in: modelNamespace)
         }
         .foregroundStyle(.white)
         .background(
