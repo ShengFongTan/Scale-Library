@@ -19,7 +19,6 @@
 		D65C01FE2ACFEEE200A79C1E /* ClearListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65C01FD2ACFEEE200A79C1E /* ClearListItem.swift */; };
 		D65C02002AD00E6E00A79C1E /* LightShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65C01FF2AD00E6E00A79C1E /* LightShadow.swift */; };
 		D65C02052AD1597C00A79C1E /* ModelKitFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65C02042AD1597C00A79C1E /* ModelKitFormView.swift */; };
-		D65C02082AD24A8100A79C1E /* PhotoPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65C02072AD24A8100A79C1E /* PhotoPickerViewModel.swift */; };
 		D65F2C622AC030D200EF5BFA /* ModelKitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65F2C612AC030D200EF5BFA /* ModelKitsView.swift */; };
 		D6716B0F2AE20AC200B975E6 /* ModelKitDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6716B0E2AE20AC200B975E6 /* ModelKitDetailViewModel.swift */; };
 		D6716B112AE2570900B975E6 /* ModelKitFormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6716B102AE2570900B975E6 /* ModelKitFormValidator.swift */; };
@@ -55,7 +54,6 @@
 		D65C01FD2ACFEEE200A79C1E /* ClearListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearListItem.swift; sourceTree = "<group>"; };
 		D65C01FF2AD00E6E00A79C1E /* LightShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightShadow.swift; sourceTree = "<group>"; };
 		D65C02042AD1597C00A79C1E /* ModelKitFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelKitFormView.swift; sourceTree = "<group>"; };
-		D65C02072AD24A8100A79C1E /* PhotoPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewModel.swift; sourceTree = "<group>"; };
 		D65F2C612AC030D200EF5BFA /* ModelKitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelKitsView.swift; sourceTree = "<group>"; };
 		D6622F872ABEC65000E482A0 /* Scale-Library-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Scale-Library-Info.plist"; path = "Scale Library/Other/Scale-Library-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D6716B0E2AE20AC200B975E6 /* ModelKitDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelKitDetailViewModel.swift; sourceTree = "<group>"; };
@@ -173,7 +171,6 @@
 		D65C02062AD2469900A79C1E /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				D65C02072AD24A8100A79C1E /* PhotoPickerViewModel.swift */,
 				D674AE752AE54A2100ACAA04 /* Observables.swift */,
 			);
 			path = "View Models";
@@ -362,7 +359,6 @@
 				D69AC3E22ADFFA81002A59F2 /* PaintsView.swift in Sources */,
 				D60CAA302ABE986F00084C3D /* Scale_LibraryApp.swift in Sources */,
 				D6716B0F2AE20AC200B975E6 /* ModelKitDetailViewModel.swift in Sources */,
-				D65C02082AD24A8100A79C1E /* PhotoPickerViewModel.swift in Sources */,
 				D608CF912ABEFE5900B12F77 /* ModelKit.swift in Sources */,
 				D638662F2ACED7FE005F2F9B /* StandardShadow.swift in Sources */,
 				D693890F2AD8229900D91F04 /* PreviewContainer.swift in Sources */,

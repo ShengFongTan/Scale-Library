@@ -206,6 +206,10 @@ struct ModelKitDetailView: View {
                             withAnimation {
                                 let result = viewModel.deleteModelKit(modelKit: observables.selectedModelKit!)
                                 if result {
+                                    /*
+                                     Prevents strange geomtryEffect animation after delete by removing id in all
+                                     matchedGeometryEffect modifiers using ternary statement to check disableGeomtryEffect value.
+                                    */
                                     disableGeomtryEffect = true
                                     showDetail.toggle()
                                 }
