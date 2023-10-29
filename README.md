@@ -41,14 +41,11 @@ This section covers the features that I have implemented so far, as well as the 
 
 ### Home screen:
 - Features:
-  - Access to other pages.
+  - Provides access to other pages.
   - Provides an overview of your stash such as total number for each category as well as the amount spent.
-- Limitations:
+- Current limitations:
   - Only model kits page is accessible.
   - Only overview for model kits is available.
-- Future plans:
-  - Fix limitations.
-  - Display some statistics on spendings and number of purchased items using graphs.
 
 <div align="center">
   <img src="Images/HomeView.png" width="30%">
@@ -61,14 +58,10 @@ This section covers the features that I have implemented so far, as well as the 
   - Tapping on a model kit brings you to its detailed page.
   - Activating context menu for a model kit allows quick access to editing and deleting of the model kit.
   - Add button on the toolbar opens a form to add new model kits.
-- Limitations:
+- Current limitations:
   - No search, sorting and filtering available.
   - Context menu borders does not conform to model kit card properly.
-  - Delete button's text in the context menu is not red.
   - Animation when deleting a model kit is wonky.
-- Future plans:
-  - Fix limitations.
-  - Provide list view as an option alongside griview.
 
 <div align="center">
   <img src="Images/ModelKitsView.gif">
@@ -79,13 +72,17 @@ This section covers the features that I have implemented so far, as well as the 
   - Displays all the information about the model kit.
   - Display the project that the model kit was planned for.
   - Menu item allows quick access to editing and deleting of the model kit.
-- Limitations:
+- Current limitations:
   - Unable to view image in fullscreen.
   - Long portrait images causes strange animation behaviour during opening and closing of page.
   - Some information like scale, brand, category and planned project are currently static.
-- Future plans:
-  - Fix limitations.
 
 <div align="center">
   <img src="Images/ModelKitsViewContextMenu.png" width="30%">
 </div>
+
+## Roadmap
+- Add Project, Accessories and Paint pages and their functionality.
+- Display some statistics on spendings and number of purchased items using graphs in home screen.
+- Privide search, sorting and filtering functions when viewing all projects/model kits/accessories/paints.
+- Provide alternatives to gridview, such as list when viewing all projects/model kits/accessories/paints.
