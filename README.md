@@ -10,7 +10,7 @@
 
 ## About The Project
 <div align="center">
-  <img src="Images/AppDemo.gif">
+  <img src="Images/AppIntro.gif">
 </div>
 
 <br><br><br>
