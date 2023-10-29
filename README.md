@@ -108,4 +108,4 @@ This section covers the features that I have implemented so far, as well as the 
 - Display some statistics on spendings and number of purchased items using graphs in home screen.
 - Privide search, sorting and filtering functions when viewing all projects/model kits/accessories/paints.
 - Provide alternatives to gridview, such as list when viewing all projects/model kits/accessories/paints.
-- Support adding image using image link 
+- Support adding image using image link alongside actual image from gallery.
