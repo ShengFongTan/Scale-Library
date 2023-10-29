@@ -71,9 +71,7 @@ This section covers the features that I have implemented so far, as well as the 
   - Provide list view as an option alongside griview.
 
 <div align="center">
-  <img src="Images/ModelKitsViewEmpty.png" width="30%">
-  <img src="Images/ModelKitsView.png" width="30%">
-  <img src="Images/ModelKitsViewContextMenu.png" width="30%">
+  <img src="Images/ModelKitsView.gif">
 </div>
 
 ### Model kit detailed page:
@@ -89,7 +87,5 @@ This section covers the features that I have implemented so far, as well as the 
   - Fix limitations.
 
 <div align="center">
-  <img src="Images/ModelKitsViewEmpty.png" width="30%">
-  <img src="Images/ModelKitsView.png" width="30%">
   <img src="Images/ModelKitsViewContextMenu.png" width="30%">
 </div>
