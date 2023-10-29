@@ -8,7 +8,7 @@
   </p>
 </div>
 
-## About The Project
+## About the project
 <div align="center">
   <img src="Images/AppIntro.gif">
 </div>
@@ -61,7 +61,6 @@ This section covers the features that I have implemented so far, as well as the 
 - Current limitations:
   - No search, sorting and filtering available.
   - Context menu borders does not conform to model kit card properly.
-  - Animation when deleting a model kit is wonky.
 
 <div align="center">
   <img src="Images/ModelKitsView.gif">
@@ -91,6 +90,17 @@ This section covers the features that I have implemented so far, as well as the 
 <div align="center">
   <img src="Images/AddModelKit.gif">
   <img src="Images/EditModelKit.gif">
+</div>
+
+### Delete model kit:
+- Features:
+  - Permanently delete model kit.
+- Current limitations:
+  - Animation when deleting a model kit from context menu is wonky if model kit is in the middle of the grid.
+
+<div align="center">
+  <img src="Images/DeleteModelKitContextMenu.gif">
+  <img src="Images/DeleteModelKitDetailView.gif">
 </div>
 
 ## Roadmap
