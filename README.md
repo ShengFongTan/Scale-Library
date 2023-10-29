@@ -48,7 +48,7 @@ This section covers the features that I have implemented so far, as well as the 
   - Only overview for model kits is available.
 
 <div align="center">
-  <img src="Images/HomeView.png" width="30%">
+  <img src="Images/HomeView.gif">
 </div>
 
 ### Model kits page:
@@ -73,12 +73,11 @@ This section covers the features that I have implemented so far, as well as the 
   - Display the project that the model kit was planned for.
   - Menu item allows quick access to editing and deleting of the model kit.
 - Current limitations:
-  - Unable to view image in fullscreen.
   - Long portrait images causes strange animation behaviour during opening and closing of page.
   - Some information like scale, brand, category and planned project are currently static.
 
 <div align="center">
-  <img src="Images/ModelKitsViewContextMenu.png" width="30%">
+  <img src="Images/ModelKitsDetailView.gif">
 </div>
 
 ## Roadmap
