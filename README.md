@@ -76,3 +76,20 @@ This section covers the features that I have implemented so far, as well as the 
   <img src="Images/ModelKitsViewContextMenu.png" width="30%">
 </div>
 
+### Model kit detailed page:
+- Features:
+  - Displays all the information about the model kit.
+  - Display the project that the model kit was planned for.
+  - Menu item allows quick access to editing and deleting of the model kit.
+- Limitations:
+  - Unable to view image in fullscreen.
+  - Long portrait images causes strange animation behaviour during opening and closing of page.
+  - Some information like scale, brand, category and planned project are currently static.
+- Future plans:
+  - Fix limitations.
+
+<div align="center">
+  <img src="Images/ModelKitsViewEmpty.png" width="30%">
+  <img src="Images/ModelKitsView.png" width="30%">
+  <img src="Images/ModelKitsViewContextMenu.png" width="30%">
+</div>
