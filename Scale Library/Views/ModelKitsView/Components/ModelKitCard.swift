@@ -56,7 +56,6 @@ struct ModelKitCard: View {
                     )
                     .blur(radius: 40)
             )
-            //.matchedGeometryEffect(id: "basicInfo\(modelKit.id)", in: modelNamespace)
         }
         .foregroundStyle(.white)
         .background(
@@ -79,6 +78,7 @@ struct ModelKitCard: View {
                 }
             }
         )
+        .contentShape(Rectangle()) // Prevents invisible overflowed portion of background image from activating .onTapGesture
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .matchedGeometryEffect(id: "roundendedCornersMask\(modelKit.id)", in: modelNamespace)
         .frame(height: 250)

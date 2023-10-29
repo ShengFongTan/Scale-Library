@@ -86,7 +86,7 @@ struct ModelKitDetailView: View {
                             }
                             .foregroundStyle(.white)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.top, 80)
+                            
                             /*
                              For some reason adding the matchedGeometryEffect modifier(must include the ternary statement)
                              below solves the laggy animation caused by the matchedGeometryEffect modifiers in the model
@@ -173,11 +173,11 @@ struct ModelKitDetailView: View {
                             .padding(.bottom, 50)
                             .deferredRendering()
                         }
-                        .padding(.top, geometry.safeAreaInsets.top) // Provide padding for safe area when horizontal
-                        .padding(.bottom, geometry.safeAreaInsets.bottom) // Provide padding for safe area when horizontal
-                        .padding(.leading, geometry.safeAreaInsets.leading * 5) // Provide padding for safe area when horizontal
-                        .padding(.trailing, geometry.safeAreaInsets.trailing * 5) // Provide padding for safe area when horizontal
-                        .padding() // Provides padding in portrait mode
+                        .padding(.top, 60)
+                        .padding(.top, geometry.safeAreaInsets.top) // Provide padding for top safe area when Portrait
+                        .padding(.leading, geometry.safeAreaInsets.leading) // Provide padding for safe area when horizontal
+                        .padding(.trailing, geometry.safeAreaInsets.trailing) // Provide padding for safe area when horizontal
+                        .padding()
                     }
                 }
                 .scrollIndicators(.hidden)
@@ -225,6 +225,7 @@ struct ModelKitDetailView: View {
                 }
                 .padding(.leading, 15)
                 .padding(.trailing, 10)
+                .padding(.top)
             }
             .fullScreenCover(isPresented: $showEditModelKit) {
                 ModelKitFormView(modelContext: modelContext, selectedModelKit: observables.selectedModelKit!)
