@@ -80,6 +80,19 @@ This section covers the features that I have implemented so far, as well as the 
   <img src="Images/ModelKitsDetailView.gif">
 </div>
 
+### Add/Edit model kit form:
+- Features:
+  - Add new model kit by uploading image from gallery(optional) and filling in the required fields(Title, description, price and date).
+  - For edit, fields and image will be prefilled with selected model kit data.
+  - Field validation.
+- Current limitations:
+  - Some information like scale, brand, category and planned project are currently static.
+
+<div align="center">
+  <img src="Images/AddModelKit.gif">
+  <img src="Images/EditModelKit.gif">
+</div>
+
 ## Roadmap
 - Add Project, Accessories and Paint pages and their functionality.
 - Display some statistics on spendings and number of purchased items using graphs in home screen.
