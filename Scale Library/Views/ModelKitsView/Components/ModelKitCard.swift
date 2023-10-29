@@ -54,7 +54,7 @@ struct ModelKitCard: View {
                     .clipShape(
                         RoundedRectangle(cornerRadius: 30, style: .continuous)
                     )
-                    .blur(radius: 40)
+                    .blur(radius: 30)
             )
         }
         .foregroundStyle(.white)
